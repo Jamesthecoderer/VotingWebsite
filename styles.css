@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: white;
+    color: #004d00;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: #008000;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background-color: gold;
+    color: white;
+}
+
+button:hover {
+    background-color: darkgoldenrod;
+}

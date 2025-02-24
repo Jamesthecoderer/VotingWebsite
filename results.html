@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Voting Results</h1>
+        <div id="results"></div>
+    </div>
+    <script>
+        // Load votes from localStorage
+        let votes = JSON.parse(localStorage.getItem("votes")) || {
+            "Act 1": 0,
+            "Act 2": 0,
+            "Act 3": 0,
+            "Act 4": 0
+        };
+
+        // Calculate total votes
+        let totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+
+        // Generate results display
+        let resultsHTML = "<ul>";
+        Object.keys(votes).forEach(act => {
+            let percentage = totalVotes === 0 ? 0 : ((votes[act] / totalVotes) * 100).toFixed(2);
+            resultsHTML += `<li>${act}: ${votes[act]} votes (${percentage}%)</li>`;
+        });
+        resultsHTML += "</ul>";
+
+        // Display results
+        document.getElementById("results").innerHTML = resultsHTML;
+    </script>
+</body>
+</html>
